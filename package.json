@@ -1,0 +1,47 @@
+{
+  "name": "shopify-themecraft",
+  "description": "Shopify theme development workflow using Liquid, AlpineJS, Tailwind CSS & Shopify CLI",
+  "version": "1.0.0",
+  "author": "Daniel Lerman",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlerm/shopify-themecraft.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dlerm/shopify-themecraft/issues"
+  },
+  "homepage": "https://github.com/dlerm/shopify-themecraft#readme",
+  "scripts": {
+    "dev": "NODE_ENV=development run-p shopify:dev vite:watch",
+    "deploy": "run-s vite:build shopify:push",
+    "deploy:dev": "run-s vite:build:dev shopify:push",
+    "deploy:new": "run-s vite:build shopify:push:new",
+    "vite:build": "vite build",
+    "vite:build:dev": "NODE_ENV=development vite build",
+    "vite:watch": "vite build --watch",
+    "shopify:dev": "shopify theme dev --environment dev",
+    "shopify:push": "shopify theme push --path shopify/",
+    "shopify:push:new": "shopify theme push --unpublished --path shopify/",
+    "shopify:logout": "shopify auth logout"
+  },
+  "dependencies": {
+    "@shopify/theme-currency": "^4.1.1",
+    "alpinejs": "^3.13.3",
+    "async-alpine": "^1.2.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.3",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.33",
+    "postcss-import": "^16.0.0",
+    "rollup-plugin-watch-globs": "^2.0.1",
+    "tailwindcss": "^3.4.0",
+    "tailwindcss-animated": "^1.0.1",
+    "vite": "^4.0.0",
+    "vite-plugin-svg-icons": "^2.0.1"
+  }
+}

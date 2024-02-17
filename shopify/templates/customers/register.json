@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "main": {
+      "type": "template-customer-register"
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

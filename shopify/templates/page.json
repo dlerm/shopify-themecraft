@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "main": {
+      "type": "template-page"
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

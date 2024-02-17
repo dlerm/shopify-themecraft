@@ -1,0 +1,16 @@
+{% comment %}
+  Variables:
+  - icon: {String} name of the icon file in the icons/ folder with the .svg extension omittted
+  - class: {String} optional classname to attach to the svg element
+
+  Usage:
+  - {%- render 'icon', icon: 'x', class: 'my-classname' -%}
+{% endcomment %}
+<svg
+  class="icon icon--{{ icon }} group {{ class -}}"
+  aria-hidden="true">
+  <use
+    xlink:href="#{{ icon }}"
+    class="{{ class }} group:fill-inherit group:stroke-inherit">
+  </use>
+</svg>

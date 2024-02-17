@@ -1,0 +1,10 @@
+{% comment %} Theme Fonts {% endcomment %}
+{% style %}
+@font-face {
+  font-family: 'YOUR_FONT_NAME';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('{{ 'YOUR_FONT_FILE.woff2' | file_url }}') format('woff2');
+}
+{% endstyle %}

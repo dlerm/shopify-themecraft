@@ -1,0 +1,46 @@
+{% comment %} Window Theme Helper {% endcomment %}
+<script>
+  window.theme = {
+    routes: {
+      root: '{%- if routes.root_url != '/' -%}{{ routes.root_url }}{%- endif -%}',
+      account: '{{ routes.account_url }}',
+      account_login : '{{ routes.account_login_url }}',
+      account_logout: '{{ routes.account_logout_url }}',
+      account_register: '{{ routes.account_register_url }}',
+      account_addresses: '{{ routes.account_addresses_url }}',
+      collections: '{{ routes.collections_url }}',
+      all_products_collection: '{{ routes.all_products_collection_url }}',
+      search: '{{ routes.search_url }}',
+      predictive_search: '{{ routes.predictive_search_url }}',
+      cart: '{{ routes.cart_url }}.js',
+      cart_add: '{{ routes.cart_add_url }}.js',
+      cart_change: '{{ routes.cart_change_url }}.js',
+      cart_clear: '{{ routes.cart_clear_url }}.js',
+      cart_update: '{{ routes.cart_update_url }}.js',
+      product_recommendations: '{{ routes.product_recommendations_url }}.js',
+    },
+    currency: {
+      iso_code: {{ cart.currency.iso_code | json }},
+      name: {{ cart.currency.name | json }},
+      symbol: {{ cart.currency.symbol | json }},
+    },
+    request: {
+      market: {{ localization.market.handle | json }},
+      type: {{ request.page_type | json }},
+      host: {{ request.host | json }},
+      handle: {{ request.path | split: '/' | last | json }},
+    },
+    country: {{ localization.available_countries.first.iso_code | json }},
+    settings: {%- render 'json--settings', settings: settings -%},
+    fileHostCDN: {{ 'main.bundle.min.css' | file_url | split: 'main.bundle.min.css' | first | json }},
+    assetHostCDN: {{ 'main.bundle.min.css' | asset_url | split: 'main.bundle.min.css' | first | json }},
+    version: {{ 'main.bundle.min.css' | file_url | split: '?' | last | json }},
+  };
+
+  window.theme.toCDN = function (filename) {
+    return `${window.theme.fileHostCDN}${filename}?${window.theme.version}`;
+  };
+  window.theme.toAssetCDN = function (filename) {
+    return `${window.theme.assetHostCDN}${filename}?${window.theme.version}`;
+  };
+</script>

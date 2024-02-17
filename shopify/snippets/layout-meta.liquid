@@ -1,0 +1,20 @@
+{% comment %} Theme Meta {% endcomment %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+{{ 'main.bundle.min.css' | asset_url | preload_tag: as: 'style' }}
+{{ 'main.bundle.min.js' | asset_url | preload_tag: as: 'script' }}
+
+<link rel="shortcut icon" href="{{ shop.brand.favicon_url }}" type="image/png" />
+
+<title>{{ page_title | escape }}</title>
+
+{% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}">
+{% endif %}
+
+{% if canonical_url != blank %}
+  <link rel="canonical" href="{{ canonical_url }}">
+{% endif %}

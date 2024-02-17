@@ -1,0 +1,4 @@
+[environments.dev]
+store = ""
+path = "./shopify/"
+live = true
