@@ -1,1 +1,17 @@
-@import 'tailwind.css';
+/**
+ * Entry file for Tailwind CSS
+ */
+@import 'tailwindcss' source(none);
+
+@import "tailwindcss-animated";
+
+@import './tailwind.css';
+
+@import './components/animation.css';
+
+@import './components/button.css';
+
+@import './components/rte.css';
+
+@source "../../**/*.{liquid,html,json}";
+@source "../icons/*.svg";

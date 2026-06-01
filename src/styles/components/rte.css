@@ -1,0 +1,21 @@
+.rte p + p {
+  margin-top: calc(var(--spacing) * 4);
+}
+
+.rte a {
+  text-decoration: underline;
+}
+
+.rte ul {
+  list-style: disc;
+  margin-left: calc(var(--spacing) * 6);
+}
+
+.rte ol {
+  list-style: decimal;
+  margin-left: calc(var(--spacing) * 6);
+}
+
+.rte li + li {
+  margin-top: calc(var(--spacing) * 1);
+}

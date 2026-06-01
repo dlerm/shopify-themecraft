@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{- request.locale.iso_code -}}">
+<html class="scroll-smooth" lang="{{- request.locale.iso_code -}}">
   <head>
     {%- render 'layout-meta' -%}
     {%- render 'layout-styles' -%}
@@ -13,13 +13,14 @@
     template="{{ template | handle }}"
     x-data>
 
+    <a href="#main" class="sr-only">Skip to content</a>
+
     {%- sections 'layout-header-group' -%}
 
     <main
       id="main"
       class="main"
-      role="main"
-      x-data>
+      role="main">
       {{ content_for_layout }}
     </main>
 

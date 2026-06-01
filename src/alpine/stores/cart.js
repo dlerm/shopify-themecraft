@@ -1,5 +1,5 @@
 import * as cart from './theme-cart';
-import { formatMoney } from '@shopify/theme-currency';
+import { formatMoney } from './theme-cart/currency';
 
 export const Cart = {
   formatMoney,
@@ -15,6 +15,13 @@ export const Cart = {
     toggle() {
       this.hidden = !this.hidden;
     }
+  },
+
+  searchParams: new URLSearchParams(window.location.search),
+
+  moneyFormats: {
+    AMOUNT_NO_TRAILING_ZEROS: `${window.theme.currency.symbol}{{amount}}`,
+    AMOUNT_NO_TRAILING_ZEROS: `${window.theme.currency.symbol}{{amount_no_trailing_zeros}}`,
   },
 
   async update() {
@@ -44,7 +51,22 @@ export const Cart = {
 
   async init() {
     await this.update();
+
+    const triggerCart = this?.searchParams?.get('cart');
+    if (triggerCart) this.drawer.open();
   },
+
+  // includes(variantId) {
+  //   return this?.items?.some((item) => item.variant_id == variantId);
+  // },
+
+  // hasSubscription() {
+  //   return this?.items?.some((item) => !!item?.selling_plan_allocation);
+  // },
+
+  // subscriptionItemCount() {
+  //   return this?.items?.filter((item) => !!item?.selling_plan_allocation)?.length;
+  // }
 };
 
 export default Cart;

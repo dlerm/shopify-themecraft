@@ -1,6 +1,66 @@
-/**
- * Entry file for Tailwind CSS
- */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@theme {
+  /* Brand colors */
+  /* --color-sample: #ff55ff; */
+
+  /* Theme variables */
+  --color-primary-light: var(--color-sample, #fff);
+  --color-primary-dark: var(--color-sample, #000);
+
+  --breakpoint-4xs: 20rem; /* 320px */
+  --breakpoint-3xs: 23.4375rem; /* 375px */
+  --breakpoint-2xs: 26.25rem; /* 420px */
+  --breakpoint-xs: 30rem; /* 480px */
+  --breakpoint-2xl: 90rem; /* 1440px */
+  --breakpoint-3xl: 120rem; /* 1920px */
+  --breakpoint-4xl: 160rem; /* 2560px */
+
+  --z-index-1: 1;
+
+  --font-1: san-serif;
+  --font-2: san-serif;
+  --font-header: var(--font-1);
+  --font-body: var(--font-2);
+  --font-weight-inherit: inherit;
+  --text-xxs: 0.625rem; /* 10px */
+  --text-3xl: 2rem; /* 32px */
+
+  --radius-inherit: inherit;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-primary, currentcolor);
+    outline-color: var(--color-primary, currentcolor);
+  }
+
+  [x-cloak] {
+    display: none !important;
+  }
+
+  :root {
+    --anim-range-type-1: cover;
+    --anim-range-type-2: cover;
+    --anim-range-value-1: 5%;
+    --anim-range-value-2: 30%;
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

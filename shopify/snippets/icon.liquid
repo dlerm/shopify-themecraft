@@ -6,11 +6,19 @@
   Usage:
   - {%- render 'icon', icon: 'x', class: 'my-classname' -%}
 {% endcomment %}
-<svg
-  class="icon icon--{{ icon }} group {{ class -}}"
-  aria-hidden="true">
-  <use
-    xlink:href="#{{ icon }}"
-    class="{{ class }} group:fill-inherit group:stroke-inherit">
-  </use>
-</svg>
+{%- if force_inline -%}
+  {%- assign filename = icon | append: '.svg' -%}
+  {{- filename | inline_asset_content -}}
+{%- else -%}
+  <svg
+    class="icon icon-{{ icon }} group {{ class -}}"
+    {% if width -%}width="{{- width -}}"{%- endif -%}
+    {% if height -%}height="{{- height -}}"{%- endif -%}
+    {% if style -%}style="{{- style -}}"{%- endif -%}
+    aria-hidden="true">
+    <use
+      xlink:href="#{{ icon }}"
+      class="{{ class }} group:fill-inherit group:stroke-inherit">
+    </use>
+  </svg>
+{%- endif -%}

@@ -1,4 +1,33 @@
+# [environments.dev]
+# store = "store-name" # replace with store handle
+# path = "./shopify/"
+# live = false
+# theme-editor-sync = true
+
 [environments.dev]
-store = ""
+store = "milestone-base-theme"
 path = "./shopify/"
-live = true
+live = false
+theme-editor-sync = true
+
+[environments.staging]
+store = "store-name" # replace with store handle
+path = "./shopify/"
+theme = "123456789" # replace with theme id
+ignore = [
+  "config/settings_data.json",
+  "templates/*.json",
+  "templates/**/*.json",
+  "sections/*.json"
+]
+
+[environments.prod]
+store = "store-name" # replace with store handle
+path = "./shopify/"
+theme = "123456789" # replace with theme id
+ignore = [
+  "config/settings_data.json",
+  "templates/*.json",
+  "templates/**/*.json",
+  "sections/*.json"
+]

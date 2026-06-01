@@ -1,0 +1,57 @@
+@utility animate-timeline-none {
+  animation: none;
+}
+
+@utility animate-timeline-fade {
+  view-timeline-name: --reveal;
+  view-timeline-axis: block;
+  animation: linear fade both;
+  animation-timeline: --reveal;
+  animation-range: var(--anim-range-type-1) var(--anim-range-value-1) var(--anim-range-type-2) var(--anim-range-value-2)
+}
+
+@utility animate-timeline-fade-left {
+  view-timeline-name: --reveal;
+  view-timeline-axis: block;
+  animation: linear fade-left both;
+  animation-timeline: --reveal;
+  animation-range: var(--anim-range-type-1) var(--anim-range-value-1) var(--anim-range-type-2) var(--anim-range-value-2)
+}
+
+@utility animate-timeline-fade-right {
+  view-timeline-name: --reveal;
+  view-timeline-axis: block;
+  animation: linear fade-right both;
+  animation-timeline: --reveal;
+  animation-range: var(--anim-range-type-1) var(--anim-range-value-1) var(--anim-range-type-2) var(--anim-range-value-2)
+}
+
+@utility animate-timeline-fade-up {
+  view-timeline-name: --reveal;
+  view-timeline-axis: block;
+  animation: linear fade-up both;
+  animation-timeline: --reveal;
+  animation-range: var(--anim-range-type-1) var(--anim-range-value-1) var(--anim-range-type-2) var(--anim-range-value-2)
+}
+
+@utility animate-timeline-fade-down {
+  view-timeline-name: --reveal;
+  view-timeline-axis: block;
+  animation: linear fade-down both;
+  animation-timeline: --reveal;
+  animation-range: var(--anim-range-type-1) var(--anim-range-value-1) var(--anim-range-type-2) var(--anim-range-value-2);
+}
+
+@utility animate-timeline-scale-up {
+  animation: linear scale-up both;
+  animation-timeline: --scale;
+  view-timeline-axis: block;
+  animation-range: cover 10% cover 50%;
+  /* animation-range: var(--anim-range-type-1) var(--anim-range-value-1) var(--anim-range-type-2) var(--anim-range-value-2); */
+}
+
+@utility animate-timeline-scale-up-container {
+  view-timeline-name: --scale;
+  animation-timeline: --scale;
+  view-timeline-axis: block;
+}

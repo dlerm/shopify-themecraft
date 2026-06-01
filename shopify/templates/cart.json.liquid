@@ -1,0 +1,30 @@
+{%- layout none -%}
+{%- capture cart_item_json_extras -%}
+{
+  "items": [
+    {%- for item in cart.items -%}
+      {%- assign max_price = item.selling_plan_allocation.compare_at_price | default: item.variant.compare_at_price | default: item.original_price -%}
+      {
+        "key": {{ item.key | json }},
+        "max_line_price": {{ max_price | times: item.quantity  | json }},
+        {%- if item.product.selling_plan_groups.size > 0 -%}
+          "selling_plans": [
+            {%- for selling_plan in item.product.selling_plan_groups.first.selling_plans -%}
+              {%- assign selling_plan_allocation = item.variant.selling_plan_allocations | where: 'selling_plan_id', selling_plan.id -%}
+              {
+                "id": {{ selling_plan.id | json }},
+                "name": {{ selling_plan.name | json }},
+                "recurring_deliveries": {{ selling_plan.recurring_deliveries | json }},
+                "compare_at_price": {{ selling_plan_allocation.compare_at_price | json }},
+                "per_delivery_price": {{ selling_plan_allocation.per_delivery_price | json }},
+                "selling_plan_group_id": {{ selling_plan_allocation.selling_plan_group_id | json }}
+              }{%- unless forloop.last -%},{%- endunless -%}
+            {%- endfor -%}
+          ]
+        {%- endif -%}
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}  
+{%- endcapture -%}
+{{- cart_item_json_extras -}}

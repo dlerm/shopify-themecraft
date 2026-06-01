@@ -1,2 +1,8 @@
 {% comment %} Theme Styles {% endcomment %}
-{{ 'main.bundle.min.css' | asset_url | stylesheet_tag }}
+ <style>
+  :root {
+    /* --icon-checkmark: url({{ 'checkmark.svg' | asset_url }}); */
+  }
+</style>
+
+{{- 'main.bundle.min.css' | asset_url | stylesheet_tag: preload: true -}}

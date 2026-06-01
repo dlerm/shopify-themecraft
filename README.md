@@ -66,7 +66,7 @@ The codebase interface logic and interations are handled primarly by [AlpineJS](
 
 ### TailwindCSS
 
-The theme is styled using [TailwindCSS](https://tailwindcss.com/docs/theme), which is a utility-first CSS framework that can be composed to build any design, directly in your markup. See the [Tailwind configuration file](tailwind.config.cjs) for our utility defaults, extensions, and plugins. Standard CSS can also be utilized, particularly in cases when we do not have direct control over certain markup ([see here](/src/styles)). An optional animation library is available to use, see [TailwindCSS Animated](https://www.tailwindcss-animated.com/configurator.html) for usage references.
+The theme is styled using [TailwindCSS](https://tailwindcss.com/docs/theme), which is a utility-first CSS framework that can be composed to build any design, directly in your markup. See the [Tailwind theme file](/src/styles/tailwind.css) for our utility defaults, extensions, and plugins. Standard CSS can also be utilized, particularly in cases when we do not have direct control over certain markup ([see here](/src/styles/components/button.css)). An optional animation library is available to use, see [TailwindCSS Animated](https://www.tailwindcss-animated.com/configurator.html) for usage references.
 
 ### Icons
 
@@ -81,6 +81,7 @@ In order to easily add and re-use SVG icons throughout the codebase, there is a 
 ```markdown
 ├── shopify
 │ ├── assets/
+│ ├── blocks/
 │ ├── config/
 │ ├── layout/
 │ ├── locales/
@@ -94,9 +95,11 @@ In order to easily add and re-use SVG icons throughout the codebase, there is a 
 │ │ ├── stores/
 │ ├── icons/
 │ ├── styles/
+│ │ ├── index.css
+│ │ ├── tailwind.css
+│ │ ├── components/
 │ ├── main.js
 ├── package.json
-├── tailwind.config.js
 └── vite.config.js
 ```
 

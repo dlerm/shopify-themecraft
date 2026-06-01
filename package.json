@@ -1,7 +1,7 @@
 {
   "name": "shopify-themecraft",
   "description": "Shopify theme development workflow using Liquid, AlpineJS, Tailwind CSS & Shopify CLI",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Daniel Lerman",
   "license": "MIT",
   "private": true,
@@ -15,32 +15,40 @@
   },
   "homepage": "https://github.com/dlerm/shopify-themecraft#readme",
   "scripts": {
-    "dev": "NODE_ENV=development run-p shopify:dev vite:watch",
+    "dev": "NODE_ENV=development run-p vite:watch shopify:dev",
     "deploy": "run-s vite:build shopify:push",
     "deploy:dev": "run-s vite:build:dev shopify:push",
     "deploy:new": "run-s vite:build shopify:push:new",
+    "deploy:prod": "run-s vite:build shopify:push:prod",
+    "deploy:staging": "run-s vite:build shopify:push:staging",
     "vite:build": "vite build",
     "vite:build:dev": "NODE_ENV=development vite build",
     "vite:watch": "vite build --watch",
     "shopify:dev": "shopify theme dev --environment dev",
     "shopify:push": "shopify theme push --path shopify/",
     "shopify:push:new": "shopify theme push --unpublished --path shopify/",
+    "shopify:push:prod": "shopify theme push --environment prod",
+    "shopify:push:staging": "shopify theme push --environment staging",
     "shopify:logout": "shopify auth logout"
   },
   "dependencies": {
-    "@shopify/theme-currency": "^4.1.1",
-    "alpinejs": "^3.13.3",
-    "async-alpine": "^1.2.1"
+    "@alpinejs/collapse": "^3.15.8",
+    "@alpinejs/focus": "^3.15.8",
+    "@alpinejs/intersect": "^3.15.8",
+    "alpinejs": "^3.14.7",
+    "async-alpine": "^2.0.1",
+    "install": "^0.13.0",
+    "npm": "^11.10.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.16",
+    "@tailwindcss/postcss": "^4.1.18",
     "cssnano": "^6.0.3",
+    "fast-glob": "^3.3.3",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.33",
-    "postcss-import": "^16.0.0",
     "rollup-plugin-watch-globs": "^2.0.1",
-    "tailwindcss": "^3.4.0",
-    "tailwindcss-animated": "^1.0.1",
+    "tailwindcss": "^4.1.18",
+    "tailwindcss-animated": "^2.0.0",
     "vite": "^4.0.0",
     "vite-plugin-svg-icons": "^2.0.1"
   }

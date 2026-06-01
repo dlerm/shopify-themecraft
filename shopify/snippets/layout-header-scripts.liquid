@@ -1,10 +1,14 @@
 {% comment %} Window Theme Helper {% endcomment %}
 <script>
   window.theme = {
+    domain: '{{ shop.domain }}',
+    permanentDomain: '{{ shop.permanent_domain }}',
     routes: {
       root: '{%- if routes.root_url != '/' -%}{{ routes.root_url }}{%- endif -%}',
       account: '{{ routes.account_url }}',
       account_login : '{{ routes.account_login_url }}',
+      account_login_default : '{{ routes.account_login_url }}',
+      account_login: '{%- if customer -%}/a/account/shopify-login{%- else -%}/a/account/login{%- endif -%}', // SKIO
       account_logout: '{{ routes.account_logout_url }}',
       account_register: '{{ routes.account_register_url }}',
       account_addresses: '{{ routes.account_addresses_url }}',
