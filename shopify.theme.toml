@@ -1,11 +1,5 @@
-# [environments.dev]
-# store = "store-name" # replace with store handle
-# path = "./shopify/"
-# live = false
-# theme-editor-sync = true
-
 [environments.dev]
-store = "milestone-base-theme"
+store = "store-name" # replace with store handle
 path = "./shopify/"
 live = false
 theme-editor-sync = true
