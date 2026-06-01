@@ -4,8 +4,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-{{ 'main.bundle.min.css' | asset_url | preload_tag: as: 'style' }}
-{{ 'main.bundle.min.js' | asset_url | preload_tag: as: 'script' }}
+{{- 'main.bundle.min.js' | asset_url | preload_tag: as: 'script', crossorigin: 'annonymous' -}}
+{% comment %} Fonts Preload {% endcomment %}
 
 <link rel="shortcut icon" href="{{ shop.brand.favicon_url }}" type="image/png" />
 
@@ -18,3 +18,5 @@
 {% if canonical_url != blank %}
   <link rel="canonical" href="{{ canonical_url }}">
 {% endif %}
+
+{%- render 'layout-meta-seo-schema' -%}

@@ -32,7 +32,9 @@ const importChunksWithHashQuery = () => {
     generateBundle(_options, bundle) {
       for (const [filename, chunk] of Object.entries(bundle)) {
         if (filename.includes('.js') && 'code' in chunk && chunk.code) {
-          const hash = new Date().getTime(); // unique hash based on build time
+          // unique hash based on build time
+          const timestamp = Date.now();
+          const hash = `v=${timestamp}`;
           // replace regular imports
           chunk.code = chunk.code.replace(
             /(from\s*['"][^"')]+\.js)(['"])/g,
@@ -66,9 +68,17 @@ export default defineConfig({
       ]
     },
   },
+  server: {
+    watch: {
+      ignored: ['**/node_modules/**', '**/assets/**'],
+    }
+  },
   clearScreen: false,
   publicDir: 'src/icons',
-  plugins: [svg(), importChunksWithHashQuery()],
+  plugins: [
+    svg(),
+    importChunksWithHashQuery()
+  ],
   resolve: {
     alias: {
       '~': path.join(__dirname, ''),

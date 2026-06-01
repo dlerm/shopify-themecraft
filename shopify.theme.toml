@@ -1,4 +1,27 @@
 [environments.dev]
-store = ""
+store = "store-name" # replace with store handle
 path = "./shopify/"
-live = true
+live = false
+theme-editor-sync = true
+
+[environments.staging]
+store = "store-name" # replace with store handle
+path = "./shopify/"
+theme = "123456789" # replace with theme id
+ignore = [
+  "config/settings_data.json",
+  "templates/*.json",
+  "templates/**/*.json",
+  "sections/*.json"
+]
+
+[environments.prod]
+store = "store-name" # replace with store handle
+path = "./shopify/"
+theme = "123456789" # replace with theme id
+ignore = [
+  "config/settings_data.json",
+  "templates/*.json",
+  "templates/**/*.json",
+  "sections/*.json"
+]

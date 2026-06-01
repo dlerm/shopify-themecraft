@@ -1,0 +1,29 @@
+@utility button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 18);
+  border-radius: calc(infinity * 1px);
+  color: var(--color-primary-light);
+  background-color: var(--color-primary-dark);
+  border: 1px solid var(--color-primary-dark);
+  font-size: var(--text-base);
+  justify-content: center;
+  text-align: center;
+  line-height: 1.5;
+  font-weight: var(--font-weight-bold);
+  outline-offset: calc(var(--spacing) * 1);
+  transition: 0.45s ease-in-out;
+  cursor: pointer;
+  z-index: 1;
+
+  @variant hover {
+    color: var(--color-primary-dark);
+    background-color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+  }
+}
+
+/* @utility button-secondary {} */
+
+/* @utility link {} */
