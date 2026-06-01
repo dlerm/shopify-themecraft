@@ -3,10 +3,10 @@
 </p>
 
 <p align="center">
-  <img alt="Static Badge ShopifyThemeCraft" src="https://img.shields.io/badge/version-1.0.0-FF4D4D">
-  <img alt="Static Badge Vite" src="https://img.shields.io/badge/vite-%5E4.0.0-646cff">
-  <img alt="Static Badge AplineJS" src="https://img.shields.io/badge/alpinejs-%5E3.13.3-259dbe">
-  <img alt="Static Badge TailwindCSS" src="https://img.shields.io/badge/tailwindcss-%5E3.4.0-06b6d4">
+  <img alt="Static Badge ShopifyThemeCraft" src="https://img.shields.io/badge/version-2.0.0-FF4D4D">
+  <img alt="Static Badge Vite" src="https://img.shields.io/badge/vite-%5E4.5.0-646cff">
+  <img alt="Static Badge AplineJS" src="https://img.shields.io/badge/alpinejs-%5E3.15.0-259dbe">
+  <img alt="Static Badge TailwindCSS" src="https://img.shields.io/badge/tailwindcss-%5E4.3.0-06b6d4">
 </p>
 
 # Shopify ThemeCraft
